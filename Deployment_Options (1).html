@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deployment Options – Christianity Growth Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a365d;
+    --accent: #c9a227;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --text: #2d3748;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  header h1 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: #4a5568;
+    font-size: 1.1rem;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--accent);
+  }
+  .card h2 {
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #1a365d;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.8rem;
+  }
+  .badge.free { background: #48bb78; color: white; }
+  .badge.paid { background: #ed8936; color: white; }
+  ul {
+    margin: 1rem 0 1rem 1.5rem;
+  }
+  li { margin-bottom: 0.4rem; }
+  .recommend {
+    background: #fffaf0;
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    border-radius: 0 8px 8px 0;
+  }
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #718096;
+    font-size: 0.9rem;
+  }
+  a { color: var(--primary); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Deployment Options</h1>
+    <p>How to publish the Christianity Growth Report</p>
+    <p style="margin-top:0.5rem; font-size:0.95rem;">Author: Ben Carter</p>
+  </header>
+
+  <div class="card">
+    <span class="badge free">Recommended • Free</span>
+    <h2>1. Netlify (Easiest)</h2>
+    <p>Best choice if you want the report online in under 2 minutes.</p>
+    <ul>
+      <li>Go to <a href="https://app.netlify.com" target="_blank">app.netlify.com</a></li>
+      <li>Sign up or log in (free)</li>
+      <li>Drag and drop the ZIP file onto the dashboard</li>
+      <li>Your site is live instantly</li>
+      <li>Add your custom domain in Site settings → Domain management</li>
+    </ul>
+    <div class="recommend">
+      <strong>Why choose this:</strong> Fastest method. No technical setup required. Free SSL and custom domain included.
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="badge free">Recommended</span>
+    <h2>Deploy with Netlify + GitHub</h2>
+    <p>Best long-term method. Every time you update the files in GitHub, Netlify automatically rebuilds and publishes your site.</p>
+    <ol style="margin:1rem 0 1rem 1.5rem;">
+      <li>Create a free GitHub account at <a href="https://github.com" target="_blank">github.com</a> (if you don’t have one).</li>
+      <li>Create a new repository (e.g. <code>christianity-growth-report</code>).</li>
+      <li>Upload these files to the repository:
+        <ul>
+          <li><code>index.html</code></li>
+          <li><code>favicon.png</code></li>
+          <li><code>robots.txt</code></li>
+        </ul>
+      </li>
+      <li>Go to <a href="https://app.netlify.com" target="_blank">app.netlify.com</a> and log in.</li>
+      <li>Click <strong>Add new site</strong> → <strong>Import an existing project</strong>.</li>
+      <li>Choose <strong>GitHub</strong> and authorize Netlify.</li>
+      <li>Select your repository.</li>
+      <li>Leave the build settings blank (it’s a static site) and click <strong>Deploy site</strong>.</li>
+      <li>Netlify will give you a live URL. You can later add your custom domain.</li>
+    </ol>
+    <div class="recommend">
+      <strong>Tip:</strong> After the first deploy, any future changes you push to the GitHub repository will automatically update your live site.
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="badge free">Alternative</span>
+    <h2>Deploy with Netlify + Azure DevOps</h2>
+    <p>Use this if your code is (or will be) stored in Azure DevOps instead of GitHub.</p>
+    <ol style="margin:1rem 0 1rem 1.5rem;">
+      <li>Create a free Azure DevOps account at <a href="https://dev.azure.com" target="_blank">dev.azure.com</a>.</li>
+      <li>Create a new project and a Git repository.</li>
+      <li>Upload <code>index.html</code>, <code>favicon.png</code>, and <code>robots.txt</code> to the repository.</li>
+      <li>In Netlify, go to <strong>Add new site</strong> → <strong>Import an existing project</strong>.</li>
+      <li>Netlify does not have a direct Azure DevOps button, so use one of these methods:
+        <ul>
+          <li><strong>Option A (Easiest):</strong> Mirror the Azure DevOps repo to GitHub, then connect GitHub to Netlify.</li>
+          <li><strong>Option B:</strong> Use the Netlify CLI or a manual deploy from Azure Pipelines.</li>
+          <li><strong>Option C:</strong> Deploy directly from Azure DevOps using the Netlify Deploy task in a pipeline.</li>
+        </ul>
+      </li>
+    </ol>
+    <div class="recommend">
+      <strong>Recommendation:</strong> For most people, GitHub + Netlify is simpler. Use Azure DevOps only if you already have your files there.
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="badge free">Free</span>
+    <h2>2. Azure Static Web Apps</h2>
+    <p>Good if you already use Microsoft Azure or want everything in one ecosystem.</p>
+    <ul>
+      <li>Create a free Azure account</li>
+      <li>Create a new <strong>Static Web App</strong> resource</li>
+      <li>Connect a GitHub repository or deploy manually</li>
+      <li>Add your custom domain in the Azure portal</li>
+      <li>SSL is automatic</li>
+    </ul>
+    <div class="recommend">
+      <strong>Why choose this:</strong> Free tier is generous. Strong if you already have an Azure account.
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="badge paid">Paid</span>
+    <h2>3. GoDaddy Web Hosting</h2>
+    <p>Works if you want to keep everything with GoDaddy (you already have a domain there).</p>
+    <ul>
+      <li>Buy a Web Hosting plan (Economy is enough)</li>
+      <li>Intro price ≈ $5.99/month (3-year term)</li>
+      <li>Upload files to the <code>public_html</code> folder via File Manager or FTP</li>
+      <li>Point your domain to the hosting</li>
+    </ul>
+    <div class="recommend">
+      <strong>Note:</strong> More expensive than the free options above for a simple static site.
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="badge free">Free</span>
+    <h2>4. Other Free Options</h2>
+    <ul>
+      <li><strong>GitHub Pages</strong> – Free, reliable, good if you use GitHub</li>
+      <li><strong>Cloudflare Pages</strong> – Free and very fast</li>
+      <li><strong>Vercel</strong> – Free and excellent for static sites</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Files You Need</h2>
+    <p>Download the ZIP package. It contains:</p>
+    <ul>
+      <li><code>index.html</code> – the full report</li>
+      <li><code>favicon.png</code> – site icon</li>
+      <li><code>robots.txt</code> – basic search engine file</li>
+    </ul>
+    <p style="margin-top:1rem;">Once you have the ZIP, you can deploy it using any of the options above.</p>
+  </div>
+
+  <footer>
+    <p>Christianity Growth Report • Deployment Guide</p>
+    <p>Created by Ben Carter • November 2026</p>
+  </footer>
+</div>
+</body>
+</html>
